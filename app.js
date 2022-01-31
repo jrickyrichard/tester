@@ -22,15 +22,23 @@ function playRound(playerSelection, computerSelection){
 
 }
 
-function game(){
 
-    for(let i=0; i <= 4; i++){
-        const playerSelection = window.prompt('pick scissors, paper or rock: ').toLowerCase();
-        const computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection));
-    }
+function game(){
+    let pick = ['rock','scissors','paper'];
+    let div = document.querySelector('body');
+    pick.map(item => {
+        let btn = document.createElement('button');
+        btn.innerText = item;
+        div.appendChild(btn);
+        btn.onclick = function(e){
+            console.log(playRound(e.target.innerText, computerPlay()))
+        }
+
+    })
 }
 
 game()
+
+
 
 
